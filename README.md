@@ -6,6 +6,7 @@ Simple Rest API using gin(framework) & gorm(orm)
 
 ## Build
 
+    go get -d -u github.com/wantedly/apig
     go get ./...
     go build -o bin/server
 
