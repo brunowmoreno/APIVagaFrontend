@@ -1,0 +1,90 @@
+# Group Statuses
+Welcome to the statuses API. This API provides access to the statuses service.
+
+## statuses [/statuses]
+
+### Create status [POST]
+
+Create a new status
+
++ Request status (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.coderockr+json
+    + Attributes
+
+        + user: 1 (number)
+        + text: TEXT (string)
+
++ Response 201 (application/json; charset=utf-8)
+    + Attributes (status, fixed)
+
+### Get statuses [GET]
+
+Returns a status list.
+
++ Request (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.coderockr+json
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (array, fixed)
+        + (status)
+
+## status details [/statuses/{id}]
+
++ Parameters
+    + id: `1` (enum[string]) - The ID of the desired status.
+        + Members
+            + `1`
+            + `2`
+            + `3`
+
+### Get status [GET]
+
+Returns a status.
+
++ Request (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.coderockr+json
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (status, fixed)
+
+### Update status [PUT]
+
+Update a status.
+
++ Request status (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.coderockr+json
+    + Attributes
+
+        + user: 1 (number)
+        + text: TEXT (string)
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (status, fixed)
+
+### Delete status [DELETE]
+
+Delete a status.
+
++ Request (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.coderockr+json
+
++ Response 204
+
+# Data Structures
+## status (object)
+
++ id: *1* (number)
++ user: *1* (number)
++ text: *TEXT* (string)
++ created_at: `*2000-01-01 00:00:00*` (string)
++ updated_at: `*2000-01-01 00:00:00*` (string)

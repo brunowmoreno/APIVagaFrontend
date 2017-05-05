@@ -1,0 +1,93 @@
+# Group Friends
+Welcome to the friends API. This API provides access to the friends service.
+
+## friends [/friends]
+
+### Create friend [POST]
+
+Create a new friend
+
++ Request friend (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.coderockr+json
+    + Attributes
+
+        + user: 1 (number)
+        + name: NAME (string)
+        + avatar: AVATAR (string)
+
++ Response 201 (application/json; charset=utf-8)
+    + Attributes (friend, fixed)
+
+### Get friends [GET]
+
+Returns a friend list.
+
++ Request (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.coderockr+json
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (array, fixed)
+        + (friend)
+
+## friend details [/friends/{id}]
+
++ Parameters
+    + id: `1` (enum[string]) - The ID of the desired friend.
+        + Members
+            + `1`
+            + `2`
+            + `3`
+
+### Get friend [GET]
+
+Returns a friend.
+
++ Request (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.coderockr+json
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (friend, fixed)
+
+### Update friend [PUT]
+
+Update a friend.
+
++ Request friend (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.coderockr+json
+    + Attributes
+
+        + user: 1 (number)
+        + name: NAME (string)
+        + avatar: AVATAR (string)
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (friend, fixed)
+
+### Delete friend [DELETE]
+
+Delete a friend.
+
++ Request (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.coderockr+json
+
++ Response 204
+
+# Data Structures
+## friend (object)
+
++ id: *1* (number)
++ user: *1* (number)
++ name: *NAME* (string)
++ avatar: *AVATAR* (string)
++ created_at: `*2000-01-01 00:00:00*` (string)
++ updated_at: `*2000-01-01 00:00:00*` (string)
