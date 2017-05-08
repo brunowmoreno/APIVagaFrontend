@@ -4,7 +4,7 @@ import (
 	"github.com/coderockr/APIVagaFrontend/controllers"
 
 	"github.com/gin-gonic/gin"
-	"net/http"
+	// "net/http"
 )
 
 func Initialize(r *gin.Engine) {
@@ -13,27 +13,27 @@ func Initialize(r *gin.Engine) {
 	api := r.Group("")
 	{
 
-		api.GET("/friends", controllers.GetFriends)
-		api.GET("/friends/:id", controllers.GetFriend)
-		api.POST("/friends", controllers.CreateFriend)
-		api.PUT("/friends/:id", controllers.UpdateFriend)
-		api.DELETE("/friends/:id", controllers.DeleteFriend)
+		api.GET("/friends", cors, controllers.GetFriends)
+		api.GET("/friends/:id", cors, controllers.GetFriend)
+		api.POST("/friends", cors, controllers.CreateFriend)
+		api.PUT("/friends/:id", cors, controllers.UpdateFriend)
+		api.DELETE("/friends/:id", cors, controllers.DeleteFriend)
 		api.OPTIONS("/friends", cors)
 		api.OPTIONS("/friends/:id", cors)
 
-		api.GET("/statuses", controllers.GetStatuses)
-		api.GET("/statuses/:id", controllers.GetStatus)
-		api.POST("/statuses", controllers.CreateStatus)
-		api.PUT("/statuses/:id", controllers.UpdateStatus)
-		api.DELETE("/statuses/:id", controllers.DeleteStatus)
+		api.GET("/statuses", cors, controllers.GetStatuses)
+		api.GET("/statuses/:id", cors, controllers.GetStatus)
+		api.POST("/statuses", cors, controllers.CreateStatus)
+		api.PUT("/statuses/:id", cors, controllers.UpdateStatus)
+		api.DELETE("/statuses/:id", cors, controllers.DeleteStatus)
 		api.OPTIONS("/statuses", cors)
 		api.OPTIONS("/statuses/:id", cors)
 
-		api.GET("/users", controllers.GetUsers)
-		api.GET("/users/:id", controllers.GetUser)
-		api.POST("/users", controllers.CreateUser)
-		api.PUT("/users/:id", controllers.UpdateUser)
-		api.DELETE("/users/:id", controllers.DeleteUser)
+		api.GET("/users", cors, controllers.GetUsers)
+		api.GET("/users/:id", cors, controllers.GetUser)
+		api.POST("/users", cors, controllers.CreateUser)
+		api.PUT("/users/:id", cors, controllers.UpdateUser)
+		api.DELETE("/users/:id", cors, controllers.DeleteUser)
 		api.OPTIONS("/users", cors)
 		api.OPTIONS("/users/:id", cors)
 
@@ -42,6 +42,6 @@ func Initialize(r *gin.Engine) {
 
 func cors(c *gin.Context) {
     c.Header("Access-Control-Allow-Origin", "*")
-    c.Header("Access-Control-Allow-Headers", "access-control-allow-origin, access-control-allow-headers")
-    c.JSON(http.StatusOK, struct{}{})
+    c.Header("Access-Control-Allow-Headers", "access-control-allow-origin, access-control-allow-headers, AnonymousToken")
+    // c.JSON(http.StatusOK, struct{}{})
 }
