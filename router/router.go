@@ -4,7 +4,6 @@ import (
 	"github.com/coderockr/APIVagaFrontend/controllers"
 
 	"github.com/gin-gonic/gin"
-	// "net/http"
 )
 
 func Initialize(r *gin.Engine) {
@@ -43,5 +42,4 @@ func Initialize(r *gin.Engine) {
 func cors(c *gin.Context) {
     c.Header("Access-Control-Allow-Origin", "*")
     c.Header("Access-Control-Allow-Headers", "access-control-allow-origin, access-control-allow-headers, AnonymousToken")
-    // c.JSON(http.StatusOK, struct{}{})
 }
